@@ -1,8 +1,9 @@
 package sk.stuba.fei.uim.oop;
+import models.Game;
 
 public class Assignment1 {
     public static void main(String[] args) {
-        Game game = new Game();
-        game.game();
+        var game = new Game();
+        game.playGame();
     }
 }
