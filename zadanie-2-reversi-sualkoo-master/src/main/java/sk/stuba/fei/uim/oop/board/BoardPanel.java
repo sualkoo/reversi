@@ -23,7 +23,7 @@ public class BoardPanel extends JPanel {
         for (int i = 0; i < squares.length; i++) {
             for (int j = 0; j < squares[i].length; j++) {
 
-                Square currentSquare = squares[i][j];
+                Square currentSquare = squares[j][i];
                 currentSquare.printSquare(g, i, j,height,width, squares.length);
 
                 if ((j % 2 == 1 && i % 2 == 1) || (j % 2 == 0 && i % 2 == 0)) {
