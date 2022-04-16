@@ -5,8 +5,16 @@ import java.awt.*;
 public class Square {
 
     private Color background;
+
+    public Circle getStone() {
+        return stone;
+    }
+
     private Circle stone;
+
     private Circle possibleMove;
+
+    public Circle getPossibleMove() { return possibleMove; }
 
     public void setPossibleMove(Circle possibleMove) {
         this.possibleMove = possibleMove;

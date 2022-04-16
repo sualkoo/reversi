@@ -24,14 +24,19 @@ public class GameBoard extends JPanel{
             }
         }
 
-        Circle bCirc = new Circle();
-        bCirc.setBackground(Color.BLACK);
-        c1squares[c1squares.length/2-1][c1squares.length/2-1].setCircle(bCirc);
-        c1squares[c1squares.length/2][c1squares.length/2].setCircle(bCirc);
-        Circle wCirc = new Circle();
-        wCirc.setBackground(Color.WHITE);
-        c1squares[c1squares.length/2-1][c1squares.length/2].setCircle(wCirc);
-        c1squares[c1squares.length/2][c1squares.length/2-1].setCircle(wCirc);
+        Circle bCirc1 = new Circle();
+        bCirc1.setColor(Color.BLACK);
+        Circle bCirc2 = new Circle();
+        bCirc2.setColor(Color.BLACK);
+        c1squares[c1squares.length/2-1][c1squares.length/2-1].setCircle(bCirc1);
+        c1squares[c1squares.length/2][c1squares.length/2].setCircle(bCirc2);
+
+        Circle wCirc1 = new Circle();
+        wCirc1.setColor(Color.WHITE);
+        Circle wCirc2 = new Circle();
+        wCirc2.setColor(Color.WHITE);
+        c1squares[c1squares.length/2-1][c1squares.length/2].setCircle(wCirc1);
+        c1squares[c1squares.length/2][c1squares.length/2-1].setCircle(wCirc2);
 
         board = new BoardPanel(c1squares);
         board.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,23 +46,28 @@ public class GameBoard extends JPanel{
         return board;
     }
 
-    public Square getSquare(int x, int y)
-    {
+    public int translateY(int y) {
         int height = board.getHeight();
-        int width = board.getWidth();
-
-        if (x >= width) {
-            x = width - 1;
-        }
         if (y >= height) {
             y = height - 1;
         }
-
         float squareHeight = (float)height/8;
-        float squareWidth = (float)width/8;
-        float j = y/squareHeight;
-        float i = x/squareWidth;
+        float tY = y/squareHeight;
+        return (int)tY;
+    }
 
-        return c1squares[(int)i][(int)j];
+    public int translateX(int x) {
+        int width = board.getWidth();
+        if (x >= width) {
+            x = width - 1;
+        }
+        float squareWidth = (float)width/8;
+        float tX = x/squareWidth;
+        return (int)tX;
+    }
+
+    public Square getSquare(int x, int y)
+    {
+        return c1squares[y][x];
     }
 }

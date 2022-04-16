@@ -4,15 +4,18 @@ import java.awt.*;
 
 public class Circle {
 
-    Color background;
+    Color color;
 
-    public void setBackground(final Color background) {
-        this.background = background;
+
+    public Color getColor() { return color; }
+
+    public void setColor(final Color color) {
+        this.color = color;
     }
 
     public void printCircle(final Graphics g, int i, int j, int height, int width, int boardSize)
     {
-        g.setColor(this.background);
+        g.setColor(this.color);
         g.fillOval(i * width / boardSize,j * height / boardSize,width / boardSize,height / boardSize);
     }
 }
